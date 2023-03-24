@@ -63,7 +63,11 @@ const app = Vue.createApp({
     },
     handleButtonClick() {
       this.hn = Math.floor(Math.random() * 6) + 5;
-      this.playerHealth += this.hn;
+     if (this.playerHealth <= 90) {
+        this.playerHealth += this.hn;
+      } else {
+        alert("High health");
+      }
       this.logitems.push(`Player used heal player health + ${this.hn}`);
       this.isButtonDisabled = true;
       this.remainingTime = 8;
